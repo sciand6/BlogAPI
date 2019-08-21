@@ -31,6 +31,24 @@ var appRouter = (app) => {
             res.json(post);
         });
     });
+
+    app.put('/posts/:_id', (req, res) => {
+        var id = req.params._id;
+        
+        var post = {
+            title: req.body.title,
+            content: req.body.content,
+            author: req.body.author,
+            postDate: req.body.postDate
+        }
+
+        Posts.findByIdAndUpdate(id, {$set: post}, (err, doc) => {
+            if (!err)
+                res.send(doc)
+            else
+                console.log("Error in post update " + JSON.stringify(err, undefined, 2))
+        });
+    });
 }
 
 module.exports = appRouter;

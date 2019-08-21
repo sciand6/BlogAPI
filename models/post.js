@@ -38,3 +38,4 @@ module.exports.getPostByID = (id, callback) => {
 module.exports.deletePostByID = (id, callback) => {
     Post.remove( {"_id": new mongoose.Types.ObjectId(id)}, callback);
 }
+
