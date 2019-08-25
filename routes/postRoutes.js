@@ -10,6 +10,15 @@ var appRouter = (app) => {
             res.json(posts);
         });
     });
+
+    app.get('/posts/:id', (req, res) => {
+        Posts.getPosts((err, posts) => {
+            if (err) {
+                res.json( {error: "Could not fetch posts."} );
+            }
+            res.json(posts);
+        });
+    });
     
     app.post('/posts', (req, res) => {
         var post = req.body;
