@@ -8,6 +8,10 @@ This is a Blog API.
 +Add Post<br>
 +Delete Post<br>
 +Get Post<br>
++Get Post by ID<br>
++Delete Post by ID<br>
++Edit Post by ID<br>
+
 
 <h3>Current data models:</h3>
 <h3>post</h3>
