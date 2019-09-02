@@ -31,7 +31,7 @@ module.exports.getPosts = (callback, limit) => {
 
 // Get post by ID
 module.exports.getPostByID = (id, callback) => {
-    Post.findById(id, callback);
+    Post.findOne(id, callback);
 }
 
 // Get post by ID

@@ -1,4 +1,5 @@
 const Posts = require('../models/post');
+var ObjectId = require('mongodb').ObjectID;
 
 var appRouter = (app) => {
     
@@ -12,11 +13,12 @@ var appRouter = (app) => {
     });
 
     app.get('/posts/:id', (req, res) => {
-        Posts.getPosts((err, posts) => {
+        var o_id = new ObjectId(req.params.id);
+        Posts.getPostByID({"_id": o_id}, (err, post) => {
             if (err) {
                 res.json( {error: "Could not fetch posts."} );
             }
-            res.json(posts);
+            res.json(post);
         });
     });
     
